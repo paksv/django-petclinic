@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Access Denied - Django Petclinic{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h1 class="display-1 text-danger">403</h1>
+                    <h2 class="mb-4">Access Denied</h2>
+                    <p class="lead mb-4">Sorry, you don't have permission to access this page.</p>
+                    <div class="mb-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6134/6134661.png" alt="Access denied" class="img-fluid" style="max-height: 200px;">
+                    </div>
+                    <p>If you believe this is an error, please contact the administrator.</p>
+                    <div class="mt-5">
+                        <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Go to Homepage</a>
+                        {% if user.is_authenticated %}
+                            <a href="#" class="btn btn-outline-secondary btn-lg ms-2">My Account</a>
+                        {% else %}
+                            <a href="#" class="btn btn-outline-secondary btn-lg ms-2">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

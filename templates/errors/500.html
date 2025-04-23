@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Server Error - Django Petclinic{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h1 class="display-1 text-danger">500</h1>
+                    <h2 class="mb-4">Server Error</h2>
+                    <p class="lead mb-4">Sorry, something went wrong on our end. We're working to fix the issue.</p>
+                    <div class="mb-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6134/6134047.png" alt="Server error" class="img-fluid" style="max-height: 200px;">
+                    </div>
+                    <p>Please try again later or contact support if the problem persists.</p>
+                    <div class="mt-5">
+                        <a href="{% url 'home' %}" class="btn btn-primary btn-lg">Go to Homepage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

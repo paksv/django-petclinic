@@ -1,0 +1,44 @@
+[
+  {
+    "model": "pets.pettype",
+    "pk": 1,
+    "fields": {
+      "name": "Dog"
+    }
+  },
+  {
+    "model": "pets.pettype",
+    "pk": 2,
+    "fields": {
+      "name": "Cat"
+    }
+  },
+  {
+    "model": "pets.pettype",
+    "pk": 3,
+    "fields": {
+      "name": "Bird"
+    }
+  },
+  {
+    "model": "pets.pettype",
+    "pk": 4,
+    "fields": {
+      "name": "Hamster"
+    }
+  },
+  {
+    "model": "pets.pettype",
+    "pk": 5,
+    "fields": {
+      "name": "Rabbit"
+    }
+  },
+  {
+    "model": "pets.pettype",
+    "pk": 6,
+    "fields": {
+      "name": "Reptile"
+    }
+  }
+]

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Django Petclinic{% endblock %}
+
+{% block content %}
+<div class="welcome-section">
+    <h2>Welcome to Django Petclinic</h2>
+    <p class="lead">A sample application demonstrating the capabilities of the Django framework</p>
+    <p>This is a port of the Spring Petclinic application to Django, showcasing how to build a small yet realistic web application.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Find Owners</h5>
+                <p class="card-text">Search for pet owners by last name or browse all owners.</p>
+                <a href="{% url 'owners:owner-list' %}" class="btn btn-primary">Find Owners</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Veterinarians</h5>
+                <p class="card-text">View all veterinarians and their specialties.</p>
+                <a href="{% url 'vets:vet-list' %}" class="btn btn-primary">View Vets</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Pet Types</h5>
+                <p class="card-text">View all available pet types in our clinic.</p>
+                <a href="#" class="btn btn-primary">View Pet Types</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <h3>About Django Petclinic</h3>
+        <p>Django Petclinic is a sample application designed to show how the Django web framework can be used to build a complete web application with:</p>
+        <ul>
+            <li>Database access using Django ORM</li>
+            <li>Form handling and validation</li>
+            <li>Responsive UI with Bootstrap</li>
+            <li>RESTful API endpoints</li>
+            <li>Authentication and authorization</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h3>Technologies Used</h3>
+        <p>This application demonstrates the use of:</p>
+        <ul>
+            <li>Django 5.2</li>
+            <li>Bootstrap 5</li>
+            <li>SQLite (development) / PostgreSQL (production)</li>
+            <li>Django REST Framework</li>
+            <li>Django Templates</li>
+            <li>Django Forms</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

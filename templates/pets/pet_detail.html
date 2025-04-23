@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ pet.name }} - Django Petclinic{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Pet Information</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">{{ pet.name }}</h5>
+                    <span class="badge bg-primary">{{ pet.type }}</span>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tr>
+                            <th>Name:</th>
+                            <td>{{ pet.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Birth Date:</th>
+                            <td>{{ pet.birth_date }}</td>
+                        </tr>
+                        <tr>
+                            <th>Type:</th>
+                            <td>{{ pet.type }}</td>
+                        </tr>
+                        <tr>
+                            <th>Age:</th>
+                            <td>{{ pet.calculate_age }} years</td>
+                        </tr>
+                        <tr>
+                            <th>Owner:</th>
+                            <td><a href="{% url 'owners:owner-detail' pet.owner.id %}">{{ pet.owner.get_full_name }}</a></td>
+                        </tr>
+                    </table>
+                    <div class="mt-3">
+                        <a href="{% url 'pets:pet-update' pet.id %}" class="btn btn-primary">Edit Pet</a>
+                        <a href="{% url 'owners:owner-detail' pet.owner.id %}" class="btn btn-secondary">Back to Owner</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Visits</h5>
+                    <a href="{% url 'visits:visit-create-for-pet' pet.id %}" class="btn btn-sm btn-success">Add New Visit</a>
+                </div>
+                <div class="card-body">
+                    {% if pet.visits.all %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for visit in pet.visits.all %}
+                                <tr>
+                                    <td>{{ visit.date }}</td>
+                                    <td>{{ visit.description }}</td>
+                                    <td>
+                                        <a href="{% url 'visits:visit-detail' visit.id %}" class="btn btn-sm btn-outline-primary">View</a>
+                                        <a href="{% url 'visits:visit-update' visit.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p class="text-center my-3"><em>No visits recorded for this pet</em></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
